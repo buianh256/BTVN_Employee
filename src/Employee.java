@@ -64,22 +64,21 @@ public class Employee {
     public void setWagetime(int wagetime) {
         this.wagetime = wagetime;
     }
-    public int getBasicSalary() {
-        return getTime() * getWage();
-    }
-    public int getOvertimePay(){
-        return getWagetime() * getPartime();
-    }
-    public int getTotalSalary() {
-        return getBasicSalary() + getOvertimePay();
+    public String getEmployeeSalary() {
+        int basicSalary = getTime() * getWage();
+        int overtimePay = getWagetime() * getPartime();
+        int totalSalar = basicSalary + overtimePay;
+        return "Lương cơ bản: $" + basicSalary + "\n" +
+                "Lương làm thêm: $" + overtimePay + "\n" +
+                "Tổng lương: $" + totalSalar ;
+
+
     }
     @Override
     public String toString(){
         return  "Thong tin nhan vien:" + "\n" +
                 "Tên: " + getName() + "\n" +
                 "Mã nhân viên: " + getId() + "\n" +
-                "Lương cơ bản: $" + getBasicSalary() + "\n" +
-                "Lương làm thêm: $" + getOvertimePay() + "\n" +
-                "Tổng lương: $" + getTotalSalary();
+                getEmployeeSalary();
     }
 }
